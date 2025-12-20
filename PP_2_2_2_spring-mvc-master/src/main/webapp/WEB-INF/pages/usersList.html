@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users List</title>
+</head>
+<body>
+<h2>List of users:</h2>
+
+<form th:method="POST" th:action="@{/usersList/save}" th:object="${user}">
+    <label for="FirstName">First Name: </label>
+    <input type="text" th:field="*{firstName}" id="FirstName">
+    <label for="LastName">Second Name: </label>
+    <input type="text" th:field="*{lastName}" id="LastName">
+    <label for="Age">Age: </label>
+    <input type="number" th:field="*{age}" id="Age">
+
+    <input type="submit" value="Add">
+</form>
+
+<div th:each="user : ${users}">
+    <a th:text="${user.getFirstName()}">user</a>
+    <a th:text="${user.getLastName()}">lastname</a>
+    <a th:text="${user.getAge()}">age</a>
+    <a th:href="@{'/usersList/update'(id=${user.id})}">Edit</a>
+    <a th:href="@{'/usersList/delete'(id=${user.id})}">Delete</a>
+</div>
+
+</br>
+
+</body>
+</html>

@@ -15,10 +15,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("web.DAO")
+@ComponentScan("web")
 public class AppConfig {
 
     @Bean
@@ -36,7 +35,7 @@ public class AppConfig {
     }
 
     @Bean
-    public DataSource dataSource(){
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl(
@@ -48,8 +47,8 @@ public class AppConfig {
                         "&serverTimezone=UTC" +
                         "&allowPublicKeyRetrieval=true"
         );
-        dataSource.setUsername( "root" );
-        dataSource.setPassword( "Disko1.3" );
+        dataSource.setUsername("root");
+        dataSource.setPassword("Disko1.3");
         return dataSource;
     }
 
@@ -62,7 +61,7 @@ public class AppConfig {
     }
 
     @Bean
-    public PersistenceExceptionTranslationPostProcessor exceptionTranslation(){
+    public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
         return new PersistenceExceptionTranslationPostProcessor();
     }
 

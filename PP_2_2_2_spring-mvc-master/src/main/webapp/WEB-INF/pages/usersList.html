@@ -22,11 +22,8 @@
     <a th:text="${user.getFirstName()}">user</a>
     <a th:text="${user.getLastName()}">lastname</a>
     <a th:text="${user.getAge()}">age</a>
-    <a th:href="@{'/usersList/update'(id=${user.id})}">Edit</a>
-    <a th:href="@{'/usersList/delete'(id=${user.id})}">Delete</a>
+    <a th:href="@{'/usersList/update/' + ${user.id}}">Edit</a>
+    <a th:href="@{'/usersList/delete/' + ${user.id}}">Delete</a>
 </div>
-
-</br>
-
 </body>
 </html>
